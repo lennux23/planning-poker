@@ -9,7 +9,7 @@
           </h1>
           <div class="columns is-vcentered">
             <div class="column">
-               <b-button type="is-white"
+               <b-button @click="handleNewGame()" type="is-white"
                 inverted rounded size="is-medium">
                 Crear nuevo juego
             </b-button>
@@ -24,7 +24,7 @@
       </div>
     </section>
      <footer class="footer">
-       ale
+      @lennux23
     </footer>
   </div>
 </template>
@@ -35,6 +35,11 @@ export default {
   name: 'home',
   components: {
     Menu
+  },
+  methods:{
+    handleNewGame(){
+      this.$router.push({name:'newgame'})
+    }
   }
 }
 </script>
