@@ -1,6 +1,6 @@
 <template>
   <div class="new-game">
-    <section class="hero is-info is-fullheight-with-navbar">
+    <section class="hero is-dark is-fullheight-with-navbar">
       <div class="hero-body">
         <div class="container">
           <div class="columns is-centered ">
@@ -13,28 +13,21 @@
               <div class="card-content">
                 <b-field
                   label="Nombre del grupo"
-                  type="is-info"
+                  label-position="on-border"
                 >
-                  <b-input
-                    name="name"
-                    placeholder="mi-nuevo-grupo"
-                  ></b-input>
+                  <b-input name="name" icon="briefcase"></b-input>
                 </b-field>
                 <b-field
                   label="Alias"
-                  type="is-info"
+                  label-position="on-border"
                 >
-                  <b-input
-                    name="alias"
-                    placeholder="alex"
-                  ></b-input>
+                  <b-input name="alias" icon="account" ></b-input>
                 </b-field>
-                <div class="has-text-centered">
+                <div class="card-button has-text-centered">
                   <b-button
                     type="is-primary"
+                    class="is-fullwidth"
                     rounded
-                    size="is-medium"
-                    @click="goToNewGame"
                   >
                     Crear
                   </b-button>
@@ -57,7 +50,14 @@ export default {
 
 <style lang="css" scoped>
 .login {
-  border-radius: 10px;
+  border-radius: 8px;
 }
+.card-content {
+  padding-top: 50px;
+}
+.card-button {
+  padding-top: 25px;
+}
+
 </style>
 
