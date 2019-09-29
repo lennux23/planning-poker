@@ -24,6 +24,7 @@
                 outlined
                 rounded
                 size="is-medium"
+                @click="goToExistingGame"
               >
                 Unirse a partida
               </b-button>
@@ -48,6 +49,9 @@ export default {
   methods: {
     goToNewGame () {
       this.$router.push({ name: 'lobby', params: {option: 'new-game'} })
+    },
+    goToExistingGame() {
+      this.$router.push({ name: 'lobby', params: {option: 'existing-game'} })
     }
   }
 }

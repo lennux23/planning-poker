@@ -11,28 +11,55 @@
                 </p>
               </header>
               <div class="card-content">
-                <b-field
-                  label="Nombre del grupo"
-                  label-position="on-border"
-                >
-                  <b-input name="name" icon="briefcase"></b-input>
-                </b-field>
-                <b-field
-                  label="Alias"
-                  label-position="on-border"
-                >
-                  <b-input name="alias" icon="account" ></b-input>
-                </b-field>
+                <div v-if="$route.params.option === 'new-game'">
+                  <b-field
+                    label="Nombre del grupo"
+                    label-position="on-border"
+                  >
+                    <b-input
+                      name="name"
+                      icon="briefcase"
+                    ></b-input>
+                  </b-field>
+                  <b-field
+                    label="Alias"
+                    label-position="on-border"
+                  >
+                    <b-input
+                      name="alias"
+                      icon="account"
+                    ></b-input>
+                  </b-field>
+                </div>
+                <div v-else>
+                  <b-field
+                    label="Grupo"
+                    label-position="on-border"
+                  >
+                    <b-select 
+                      v-model="groupIdSelected"
+                      placeholder="Selecciona grupo a unirte">
+                      <option
+                       
+                        v-for="option in groups"
+                        :value="option.id"
+                        :key="option.id"
+                      >
+                        {{ option.name }}
+                      </option>
+                    </b-select>
+                  </b-field>
+                </div>
                 <div class="card-button has-text-centered">
                   <b-button
                     type="is-primary"
                     class="is-fullwidth"
                     rounded
+                    @click="goToBoard"
                   >
-                    Crear
+                    {{buttonTitle}}
                   </b-button>
                 </div>
-
               </div>
             </div>
           </div>
@@ -45,13 +72,32 @@
 <script>
 export default {
   name: 'form-lobby',
-  data(){
+  data () {
     return {
       title: null,
+      buttonTitle: null,
+      groupIdSelected: null,
+      groups: [
+        { id: 1, name: 'Alex' },
+        { id: 2, name: 'Lucy' },
+        { id: 3, name: 'Joss' },
+        { id: 4, name: 'Gabriel' }
+      ]
     }
   },
-  methods:{
-    
+  created () {
+    if (this.$route.params.option === 'new-game') {
+      this.title = 'Nuevo Juego'
+      this.buttonTitle = 'Crear'
+    } else {
+      this.title = 'Juego Existente'
+      this.buttonTitle = 'Unirse'
+    }
+  },
+  methods: {
+    goToBoard(){
+      this.$router.push({ name: 'board', params: {id: 1233} })
+    }
   }
 }
 </script>
@@ -66,6 +112,5 @@ export default {
 .card-button {
   padding-top: 25px;
 }
-
 </style>
 
