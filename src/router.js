@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-const NewGame = () => import(/* webpackChunkName: "form" */ '@/views/NewGame.vue');
+const FormLobby = () => import(/* webpackChunkName: "form" */ '@/views/FormLobby.vue');
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -13,9 +14,9 @@ export default new Router({
       component: Home
     },
     {
-      path: '/newgame',
-      name: 'newgame',
-      component: NewGame
+      path: '/lobby/:option',
+      name: 'lobby',
+      component: FormLobby
     }
   ]
 })

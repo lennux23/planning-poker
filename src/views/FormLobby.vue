@@ -1,5 +1,5 @@
 <template>
-  <div class="new-game">
+  <div class="form-lobby">
     <section class="hero is-dark is-fullheight-with-navbar">
       <div class="hero-body">
         <div class="container">
@@ -7,7 +7,7 @@
             <div class="card login is-size-5 has">
               <header class="card-header is-capitalized">
                 <p class="card-header-title has-text-primary ">
-                  Nuevo grupo
+                  {{title}}
                 </p>
               </header>
               <div class="card-content">
@@ -44,7 +44,15 @@
 </template>
 <script>
 export default {
-  name: 'new-game'
+  name: 'form-lobby',
+  data(){
+    return {
+      title: null,
+    }
+  },
+  methods:{
+    
+  }
 }
 </script>
 

@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     goToNewGame () {
-      this.$router.push({ name: 'newgame' })
+      this.$router.push({ name: 'lobby', params: {option: 'new-game'} })
     }
   }
 }
